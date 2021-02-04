@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Template;
+use App\Models\Template;
 use Illuminate\Http\Request;
 
 class TemplateController extends Controller
@@ -14,7 +14,7 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        //
+        return Template::all();
     }
 
     /**
@@ -35,7 +35,14 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'content' => 'required'
+        ]);
+        
+        $template = Template::create($request->all());
+        return response()->json($template, 201);
     }
 
     /**
@@ -46,7 +53,7 @@ class TemplateController extends Controller
      */
     public function show(Template $template)
     {
-        //
+        return $template;
     }
 
     /**
@@ -69,7 +76,20 @@ class TemplateController extends Controller
      */
     public function update(Request $request, Template $template)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'content' => 'required',
+        ]);
+
+        $template->update($request->only([
+            'name', 'category', 'content'
+        ]));
+
+        return request()->json([
+            'messages' => 'Update success',
+            'template' => $template,
+        ]);
     }
 
     /**
@@ -80,6 +100,9 @@ class TemplateController extends Controller
      */
     public function destroy(Template $template)
     {
-        //
+        $template->delete();
+        return response()->json([
+            'messages' => 'delete success'
+        ]);
     }
 }

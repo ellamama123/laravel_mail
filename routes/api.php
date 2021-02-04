@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+$namespace = '\App\Http\Controllers';
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::apiResource('candidate','CandidateController');
+Route::group(['namespace' => $namespace], function(){
+    Route::apiResource('candidate','CandidateController');
+    Route::apiResource('template', 'TemplateController');
+});
