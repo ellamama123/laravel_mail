@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Candidate;
+use App\Models\Candidate;
 
 class CandidateController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if(request()->input('status')){
+            return Candidate::where('status', request()->input('status'))->get();
+        }
         return Candidate::all();
     }
 
@@ -31,7 +34,7 @@ class CandidateController extends Controller
         return response()->json($candidate, 200);
     }
 
-    public function delete(Candidate $candidate)
+    public function destroy(Candidate $candidate)
     {
         $candidate->delete();
 

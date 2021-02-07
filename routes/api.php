@@ -22,3 +22,5 @@ Route::group(['namespace' => $namespace], function(){
     Route::apiResource('candidate','CandidateController');
     Route::apiResource('template', 'TemplateController');
 });
+
+Route::post('send-mail','MailThankController@sendMail');
