@@ -6,6 +6,7 @@
   <title>Document</title>
 </head>
 <body>
+    <p> {{ $data['name']}} <p>
     <p>Thank you</p>
 </body>
 </html>

@@ -10,6 +10,6 @@ class MailThankController extends Controller
 {
     public function sendMail(Request $request)
     {
-        Mail::to('syshit8@gmail.com')->send(new \App\Mail\MyTestMail());
+        Mail::to($request->email)->send(new \App\Mail\MyTestMail($request));
     }
 }
