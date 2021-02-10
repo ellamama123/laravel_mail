@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$namespace = '\App\Http\Controllers';
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mail/mailThank','TemplateController@getTemplateThank');
+Route::get('/mail/mailIntern','TemplateController@getTemplateIntern');
+Route::get('/mail/mailOffer','TemplateController@getTemplateOffer');

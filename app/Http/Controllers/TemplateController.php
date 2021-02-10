@@ -105,4 +105,16 @@ class TemplateController extends Controller
             'messages' => 'delete success'
         ]);
     }
+
+    public function getTemplateInternApi(){
+        return Template::where('category', 1)->first();
+    }
+
+    public function getTemplateOfferApi(){
+        return Template::where('category', 2)->first();
+    }
+
+    public function getTemplateThankApi(){
+       return Template::where('category', 0)->first();
+    }
 }

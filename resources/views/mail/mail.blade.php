@@ -6,7 +6,9 @@
   <title>Document</title>
 </head>
 <body>
-    <p> {{ $data['name']}} <p>
-    <p>Thank you</p>
+  <?php 
+    $data['content'] = str_replace('[Name]',$data['name'],$data['content']);
+  ?>
+    {{ $data['content'] }}
 </body>
 </html>

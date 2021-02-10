@@ -21,6 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['namespace' => $namespace], function(){
     Route::apiResource('candidate','CandidateController');
     Route::apiResource('template', 'TemplateController');
+    Route::apiResource('history', 'HistoryController');
 });
 
+Route::get('getMailThank', 'TemplateController@getTemplateThankApi');
+Route::get('getMailIntern', 'TemplateController@getTemplateInternApi');
+Route::get('getMailOffer', 'TemplateController@getTemplateOfferApi'); 
 Route::post('send-mail','MailThankController@sendMail');
+Route::post('send-mailIntern', 'MailInternController@sendMail');
+Route::post('send-mailOffer', 'MailOfferController@sendMail');
