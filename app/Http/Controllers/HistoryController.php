@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use Illuminate\Http\Request;
 use App\Models\History;
 
@@ -9,6 +10,7 @@ class HistoryController extends Controller
 {
     public function index(Request $request)
     {
+        
         return History::all();
     }
 

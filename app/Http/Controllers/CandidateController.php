@@ -9,12 +9,7 @@ class CandidateController extends Controller
 {
     public function index(Request $request)
     {
-        if(request()->input('status')){
-            return Candidate::where('status', request()->input('status'))->get();
-        }elseif(request()->input('id'))
-        {
-            return Candidate::where('id', request()->input('id'))->first();
-        }
+       
         return Candidate::all();
     }
 
