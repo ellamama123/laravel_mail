@@ -9,7 +9,7 @@ class CandidateController extends Controller
 {
     public function index(Request $request)
     {
-        if(request()){
+        if($request->has('status')){
             return Candidate::where('status', request()->input('status'))->get();
         }
         return Candidate::all();
