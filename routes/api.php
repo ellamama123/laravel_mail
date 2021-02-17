@@ -22,6 +22,7 @@ Route::group(['namespace' => $namespace], function(){
     Route::apiResource('candidate','CandidateController');
     Route::apiResource('template', 'TemplateController');
     Route::apiResource('history', 'HistoryController');
+    Route::post('login', 'LoginController@login');
 });
 
 Route::get('getMailThank', 'TemplateController@getTemplateThankApi');
