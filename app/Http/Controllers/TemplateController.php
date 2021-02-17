@@ -107,14 +107,14 @@ class TemplateController extends Controller
     }
 
     public function getTemplateInternApi(){
-        return Template::where('category', 1)->first();
-    }
-
-    public function getTemplateOfferApi(){
         return Template::where('category', 2)->first();
     }
 
+    public function getTemplateOfferApi(){
+        return Template::where('category', 3)->first();
+    }
+
     public function getTemplateThankApi(){
-       return Template::where('category', 0)->first();
+       return Template::where('category', 1)->first();
     }
 }
