@@ -13,11 +13,19 @@ class LoginController extends Controller{
     $data = User::where('name', '=', $name)->where('password', '=', hash('md5', $pass))->get();
     if(count($data) > 0){
       if($data[0]->name == $name && $data[0]->pass == hash('md5', $pass)){
-        return response()->json(array('success' => 1));
+        return response()->json(array('messages' => 'Thanh cong'));
       }
     }
     else{
-      return response()->json(array('success' => 0));
+      return response()->json(array('messages' => 'Dang nhap that bai'));
     }
+  }
+  
+  public function register(Request $request){
+    $user = new User();
+    $user->name = $request->username;
+    $user->email = $request->email;
+    $user->password = hash('md5', $request->password);
+    $user->save();
   }
 }

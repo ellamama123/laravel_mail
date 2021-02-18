@@ -12,7 +12,7 @@ class CandidateController extends Controller
         if($request->has('status')){
             return Candidate::where('status', request()->input('status'))->get();
         }
-        return Candidate::all();
+        return Candidate::orderBy('created_at','desc')->get();
     }
 
     public function show(Candidate $candidate)
