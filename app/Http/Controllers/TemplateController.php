@@ -12,9 +12,20 @@ class TemplateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Template::orderBy('created_at','desc')->get();
+        $template = Template::orderBy('created_at','desc');
+        if($request->has('name') && request()->input('name') != ''){
+             $template->where('name', 'LIKE', '%'.request()->input('name').'%');
+        }
+        if($request->has('category') && request()->input('category') != 0){
+            $template->where('category', request()->input('category'));
+        }
+        if($request->has('date') && request()->input('date') != ''){
+            $template->whereDate('created_at', '=' ,request()->input('date'));
+        }
+
+        return $template->get();
     }
 
     /**

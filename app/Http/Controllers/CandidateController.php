@@ -22,7 +22,7 @@ class CandidateController extends Controller
         {
             $candidate->where('email', 'LIKE','%'.request()->input('mail').'%');
         }
-        if($request->has('date'))
+        if($request->has('date') && request()->input('date') != '')
         {
             $candidate->whereDate('created_at', '=' , request()->input('date'));
         }
