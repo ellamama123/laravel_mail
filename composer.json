@@ -13,8 +13,15 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
+<<<<<<< HEAD
         "laravel/tinker": "^2.5",
         "tymon/jwt-auth": "^1.0"
+=======
+        "laravel/passport": "4.0.*",
+        "laravel/tinker": "^2.5",
+        "paragonie/random_compat": "2.*",
+        "tymon/jwt-auth": "dev-develop"
+>>>>>>> d42f26834a8f08a050a7dbb526fcbb70f9e16074
     },
     "require-dev": {
         "facade/ignition": "^2.0",
