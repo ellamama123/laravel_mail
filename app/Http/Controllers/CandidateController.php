@@ -9,10 +9,28 @@ class CandidateController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->has('status')){
-            return Candidate::where('status', request()->input('status'))->get();
+        $candidate = Candidate::orderBy('created_at','desc');
+        if($request->has('name') && request()->input('name') != '' )
+        {
+            $candidate->where('name', 'LIKE','%'.request()->input('name').'%');
         }
-        return Candidate::all();
+        if($request->has('phone') && request()->input('phone') != '')
+        {
+            $candidate->where('phone', 'LIKE','%'.request()->input('phone').'%');
+        }
+        if($request->has('mail') && request()->input('mail') != '')
+        {
+            $candidate->where('email', 'LIKE','%'.request()->input('mail').'%');
+        }
+        if($request->has('status') && request()->input('status') != -1 )
+        {
+            $candidate->where('status', request()->input('status'));
+        }
+        if($request->has('position') && request()->input('position') != 0 )
+        {
+            $candidate->where('position', request()->input('position'));
+        }
+        return $candidate->get();
     }
 
     public function show(Candidate $candidate)
