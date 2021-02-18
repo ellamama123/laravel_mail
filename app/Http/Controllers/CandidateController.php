@@ -22,6 +22,10 @@ class CandidateController extends Controller
         {
             $candidate->where('email', 'LIKE','%'.request()->input('mail').'%');
         }
+        if($request->has('date'))
+        {
+            $candidate->whereDate('created_at', '=' , request()->input('date'));
+        }
         if($request->has('status') && request()->input('status') != -1 )
         {
             $candidate->where('status', request()->input('status'));
