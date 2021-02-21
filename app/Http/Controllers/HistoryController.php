@@ -8,17 +8,28 @@ use App\Models\History;
 
 class HistoryController extends Controller
 {
+    //Hiển thị dữ liệu
     public function index(Request $request)
     {
-        
-        return History::all();
+        $history = History::orderBy('created_at', 'desc');
+        if($request->has('category') && request()->input('category') != 0 )
+        {
+            $history->where('template_id', request()->input('category'));
+        }
+        if($request->has('position') && request()->input('position') != 0)
+        {
+            $history->where('position', request()->input('position'));
+        }
+        return $history->get();
     }
 
+    //Hiển thị dữ liệu theo id
     public function show(History $history)
     {
         return $history;
     }
 
+    //Lưu dữ liệu
     public function store(Request $request)
     {
         $history = History::create($request->all());
@@ -26,6 +37,7 @@ class HistoryController extends Controller
         return response()->json($history, 201);
     }
 
+    //Sửa dữ liệu
     public function update(Request $request, History $history)
     {
         $history->update($request->all());
@@ -33,6 +45,7 @@ class HistoryController extends Controller
         return response()->json($history, 200);
     }
 
+    //Xóa dữ liệu
     public function destroy(History $history)
     {
         $history->delete();

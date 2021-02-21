@@ -11,7 +11,10 @@
     $data['content'] = str_replace('[Name]',$data['name'],$data['content']);  
     $data['content'] = str_replace('[dateTime]',$data['dateTime'],$data['content']);
     $data['content'] = str_replace('[Position]', $data['position'], $data['content']);
+    
+    $data['content'] = str_replace( "\n", "<br />",$data['content']);
+    echo $data['content']
   ?>
-  {{$data['content']}}
+
 </body>
 </html>

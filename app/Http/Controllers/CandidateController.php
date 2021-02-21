@@ -7,6 +7,7 @@ use App\Models\Candidate;
 
 class CandidateController extends Controller
 {
+    //Hiển thị dữ liệu
     public function index(Request $request)
     {
         $candidate = Candidate::orderBy('created_at','desc');
@@ -37,11 +38,13 @@ class CandidateController extends Controller
         return $candidate->get();
     }
 
+    //Hiển thị dữ liệu theo id
     public function show(Candidate $candidate)
     {
         return $candidate;
     }
 
+    //Lưu dữ liệu
     public function store(Request $request)
     {
         $candidate = Candidate::create($request->all());
@@ -49,6 +52,7 @@ class CandidateController extends Controller
         return response()->json($candidate, 201);
     }
 
+    //Sửa dữ liệu
     public function update(Request $request, Candidate $candidate)
     {
         $candidate->update($request->all());
@@ -56,6 +60,7 @@ class CandidateController extends Controller
         return response()->json($candidate, 200);
     }
 
+    //Xóa dữ liệu
     public function destroy(Candidate $candidate)
     {
         $candidate->delete();

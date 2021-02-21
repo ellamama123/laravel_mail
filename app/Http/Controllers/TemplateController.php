@@ -12,6 +12,8 @@ class TemplateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     //Hiển thị dữ liệu
     public function index(Request $request)
     {
         $template = Template::orderBy('created_at','desc');
@@ -44,6 +46,8 @@ class TemplateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //Lưu dữ liệu
     public function store(Request $request)
     {
         $request->validate([
@@ -62,6 +66,8 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
+
+    //Hiển thị dữ liệu theo id
     public function show(Template $template)
     {
         return $template;
@@ -85,6 +91,8 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
+
+      //Sửa dữ liệu
     public function update(Request $request, Template $template)
     {
         $request->validate([
@@ -109,6 +117,8 @@ class TemplateController extends Controller
      * @param  \App\Template  $template
      * @return \Illuminate\Http\Response
      */
+
+     //Xóa dữ liệu
     public function destroy(Template $template)
     {
         $template->delete();
@@ -118,14 +128,14 @@ class TemplateController extends Controller
     }
 
     public function getTemplateInternApi(){
-        return Template::where('category', 2)->first();
+        return Template::where('category', 2)->get();
     }
 
     public function getTemplateOfferApi(){
-        return Template::where('category', 3)->first();
+        return Template::where('category', 3)->get();
     }
 
     public function getTemplateThankApi(){
-       return Template::where('category', 1)->first();
+       return Template::where('category', 1)->get();
     }
 }
