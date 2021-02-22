@@ -12,5 +12,6 @@ class MailInternController extends Controller
     public function sendMail(Request $request)
     {
         Mail::to($request->email)->send(new \App\Mail\MailIntern($request));
+        
     }
 }

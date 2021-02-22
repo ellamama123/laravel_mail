@@ -16,10 +16,26 @@ class HistoryController extends Controller
         {
             $history->where('template_id', request()->input('category'));
         }
+
         if($request->has('position') && request()->input('position') != 0)
         {
             $history->where('position', request()->input('position'));
         }
+
+        if($request->has('name') && request()->input('name') != ''){
+            $candidate = Candidate::Where('name',  request()->input('name'))->pluck('id');
+            $history->whereIn('candidate_id', $candidate);
+        }
+
+        if($request->has('email') && request()->input('email') != ''){
+            $history->where('candidate_email', request()->input('email'));
+        }
+
+        if($request->has('date') && request()->input('date') != '')
+        {
+            $history->whereDate('created_at', '=' , request()->input('date'));
+        }
+        
         return $history->get();
     }
 
