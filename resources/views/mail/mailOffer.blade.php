@@ -11,6 +11,7 @@
     $data['content'] = str_replace('[Name]',$data['name'],$data['content']);  
     $data['content'] = str_replace('[date]',$data['date'],$data['content']);
     $data['content'] = str_replace('[salary]',$data['salary'],$data['content']);
+    $data['content'] = str_replace('[Position]', $data['position'], $data['content']);
 
     $data['content'] = str_replace( "\n", "<br />",$data['content']);
     echo $data['content']
