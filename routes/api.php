@@ -16,14 +16,6 @@ $namespace = '\App\Http\Controllers';
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::group([
-    'namespace' => $namespace,
-    'middleware' => 'api',
-    'prefix' => 'auth',
-
-], function ($router) {
 
     Route::post('/login', 'AuthController@login');
     Route::post('/register', 'AuthController@register');
@@ -31,6 +23,7 @@ Route::group([
     Route::post('/refresh', 'AuthController@refresh');
     Route::get('/user-profile', 'AuthController@userProfile');
 
+    return $request->user();
 });
 
 Route::group(['namespace' => $namespace,  ], function(){
