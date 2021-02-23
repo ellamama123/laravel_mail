@@ -17,9 +17,7 @@ $namespace = '\App\Http\Controllers';
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
 
-    Route::post('/login', 'AuthController@login');
-    Route::post('/register', 'AuthController@register');
-    Route::post('/logout', 'AuthController@logout');
+   
     Route::post('/refresh', 'AuthController@refresh');
     Route::get('/user-profile', 'AuthController@userProfile');
 
@@ -30,6 +28,12 @@ Route::group(['namespace' => $namespace,  ], function(){
     Route::apiResource('candidate','CandidateController');
     Route::apiResource('template', 'TemplateController');
     Route::apiResource('history', 'HistoryController');
+
+    //Registor
+    Route::post('/register', 'AuthController@register');
+    //login
+    Route::post('/login', 'AuthController@login');
+    Route::post('/logout', 'AuthController@logout');
 }); 
 
 Route::get('getMailThank', 'TemplateController@getTemplateThankApi');

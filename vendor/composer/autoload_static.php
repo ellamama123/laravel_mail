@@ -417,6 +417,7 @@ class ComposerStaticInit3bcf14b2c22be219182a729a7ff73af9
         'Fruitcake\\Cors\\' => 
         array (
             0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/barryvdh/laravel-cors/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -497,6 +498,7 @@ class ComposerStaticInit3bcf14b2c22be219182a729a7ff73af9
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\CandidateController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidateController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/HistoryController.php',
