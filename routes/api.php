@@ -17,8 +17,7 @@ $namespace = '\App\Http\Controllers';
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
 
-    Route::post('/login', 'AuthController@login');
-    Route::post('/logout', 'AuthController@logout');
+   
     Route::post('/refresh', 'AuthController@refresh');
     Route::get('/user-profile', 'AuthController@userProfile');
 
@@ -32,6 +31,9 @@ Route::group(['namespace' => $namespace,  ], function(){
 
     //Registor
     Route::post('/register', 'AuthController@register');
+    //login
+    Route::post('/login', 'AuthController@login');
+    Route::post('/logout', 'AuthController@logout');
 }); 
 
 Route::get('getMailThank', 'TemplateController@getTemplateThankApi');
