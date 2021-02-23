@@ -31,6 +31,7 @@ Route::group(['namespace' => $namespace,  ], function(){
 
     //Registor
     Route::post('/register', 'AuthController@register');
+    Route::post('/user', 'AuthController@user');
     //login
     Route::post('/login', 'AuthController@login');
     Route::post('/logout', 'AuthController@logout');
