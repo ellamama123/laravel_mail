@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,7 @@ Route::group(['namespace' => $namespace,  ], function(){
     //login
     Route::post('/login', 'AuthController@login');
     Route::post('/logout', 'AuthController@logout');
+    Route::get('/user','AuthController@user');
 }); 
 
 Route::get('getMailThank', 'TemplateController@getTemplateThankApi');
