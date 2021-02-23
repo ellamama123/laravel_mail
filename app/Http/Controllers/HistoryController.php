@@ -35,6 +35,11 @@ class HistoryController extends Controller
         {
             $history->whereDate('created_at', '=' , request()->input('date'));
         }
+
+        if($request->has('status') && request()->input('status') != -1)
+        {
+            $history->where('status', request()->input('status'));
+        }
         
         return $history->get();
     }
