@@ -138,4 +138,9 @@ class TemplateController extends Controller
     public function getTemplateThankApi(){
        return Template::where('category', 1)->get();
     }
+
+    public function previewMail(Request $request){
+        $template = Template::find($request->id);
+        return $template->content;
+    }
 }
