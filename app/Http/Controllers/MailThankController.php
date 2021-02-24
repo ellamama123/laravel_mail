@@ -20,6 +20,11 @@ class MailThankController extends Controller
             $candidate->status = 1;
             $candidate->save();
         }
-        
+    }
+
+    public function previewMail(Request $request){
+        // $mail =  Mail::to($request->content);
+        // dd($mail);
+        echo 'alo';
     }
 }
