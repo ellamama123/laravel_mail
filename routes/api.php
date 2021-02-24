@@ -37,6 +37,8 @@ Route::group(['namespace' => $namespace,  ], function(){
     Route::post('/login', 'AuthController@login');
     Route::post('/logout', 'AuthController@logout');
     Route::get('/user','AuthController@user');
+
+    Route::get('previewMail','MailThankController@previewMail');
 }); 
 
 Route::get('getMailThank', 'TemplateController@getTemplateThankApi');
@@ -45,3 +47,5 @@ Route::get('getMailOffer', 'TemplateController@getTemplateOfferApi');
 Route::post('send-mail','MailThankController@sendMail');
 Route::post('send-mailIntern', 'MailInternController@sendMail');
 Route::post('send-mailOffer', 'MailOfferController@sendMail');
+
+
